@@ -1,0 +1,309 @@
+:root {
+  --bg-color: #f9f5f1; /* Fondo cálido claro con un toque beige suave */
+  --text-color: #333333; /* Texto oscuro para un buen contraste */
+  --primary-color: #e91e63; /* Rosa brillante para detalles y acentos */
+  --secondary-color: #f7b7a3; /* Rosa suave como fondo y hover */
+  --highlight-color: #ffd700; /* Dorado para resaltar detalles importantes */
+  --link-hover-bg: #f8bbd0; /* Fondo suave rosado para los links */
+  --submenu-color: #d81b60; /* Color de los submenús en rosa intenso */
+  --day-bg: #ffffff; /* Fondo blanco para el modo día */
+  --night-bg: #f8bbd0; /* Fondo rosado suave para el modo noche */
+  --logout-bg: #f48fb1; /* Rosa suave para el botón de logout */
+  --floating-btn-bg: #ffd700; /* Dorado brillante para el botón flotante */
+  --focus-shadow: rgba(233, 30, 99, 0.5); /* Sombra rosada para los elementos enfocados */
+
+  --table-header-bg: var(--link-hover-bg); /* Fondo de los encabezados en tabla */
+  --table-hover-bg: #fce4ec; /* Fondo rosado claro para las filas al pasar el mouse */
+  --table-border: var(--primary-color); /* Bordes en rosa brillante */
+  --footer-bg: #f7b7a3; /* Fondo suave rosado para el pie de página */
+
+  --font-size-small: 1rem;
+  --title-font-size: 2.8rem; /* Títulos grandes y elegantes */
+  --font-weight-bold: 700;
+  --font-family: 'Poppins', sans-serif; /* Fuente moderna y legible */
+
+  --border-radius: 1.2rem; /* Bordes redondeados para suavizar el diseño */
+  --border-radius-large: 1.5rem;
+
+  --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidad */
+  --transition: 0.3s ease-out; /* Transición suave para los efectos de hover */
+}
+
+body,
+html {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+  background: linear-gradient(rgba(249, 245, 241, 0.9), rgba(249, 245, 241, 0.9)), url('../img/mainbg.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+
+.sidebar-container {
+  background-color: #ffffff; /* Barra lateral en blanco */
+  box-shadow: var(--box-shadow);
+}
+
+.search-input:focus {
+  box-shadow: 0 0 0 3px var(--focus-shadow);
+}
+
+.title {
+  color: var(--text-color);
+  font-size: var(--title-font-size);
+  font-weight: var(--font-weight-bold);
+}
+
+.toggle-btn,
+.search-icon,
+.menu-link {
+  color: var(--primary-color);
+}
+
+.menu-link:hover {
+  background-color: var(--link-hover-bg);
+}
+
+.submenu {
+  color: var(--submenu-color);
+}
+
+.toggle-day {
+  background-color: var(--day-bg);
+  color: var(--text-color);
+}
+
+.toggle-night {
+  background-color: var(--night-bg);
+  color: var(--text-color);
+}
+
+.toggle-day.active {
+  background-color: var(--bg-color);
+  color: var(--primary-color);
+}
+
+.toggle-night.active {
+  background-color: var(--night-bg);
+  color: var(--text-color);
+}
+
+.logout-btn {
+  background-color: var(--logout-bg);
+  color: var(--text-color);
+}
+
+.logout-btn:hover {
+  background-color: var(--link-hover-bg);
+}
+
+.floating-btn {
+  background-color: var(--floating-btn-bg);
+  color: var(--text-color);
+  transition: var(--transition);
+}
+
+.floating-btn:hover {
+  background-color: var(--primary-color);
+  transform: scale(1.1);
+}
+
+/* Tabla */
+.table-auto {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border-radius: var(--border-radius-large);
+  overflow: hidden;
+}
+
+.table-auto th {
+  background-color: var(--table-header-bg);
+  color: var(--text-color);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.table-auto td {
+  border: 1px solid var(--table-border);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.table-auto tbody tr:hover {
+  background-color: var(--table-hover-bg);
+}
+
+/* Botones */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.8rem 1.4rem;
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-bold);
+  cursor: pointer;
+  border: 1px solid transparent;
+  background-color: var(--link-hover-bg);
+  color: var(--text-color);
+  transition: var(--transition);
+}
+
+.btn:hover {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
+
+.btn-outline-pink {
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  background-color: transparent;
+}
+
+.btn-outline-pink:hover {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
+
+.table-auto td .btn {
+  border-radius: var(--border-radius-large);
+  background-color: transparent;
+  border: 2px solid var(--primary-color);
+}
+
+.table-auto td .btn:hover {
+  background-color: var(--link-hover-bg);
+  color: var(--text-color);
+  border-color: var(--table-header-bg);
+}
+
+select {
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color) !important;
+  background-color: transparent !important;
+}
+
+input {
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color) !important;
+  background-color: transparent !important;
+}
+
+/* Espaciado */
+.py-12 {
+  margin-top: calc(80px + 1rem);
+  margin-bottom: calc(80px + 1rem);
+}
+
+/* Footer */
+footer {
+  background-color: var(--logout-bg) !important;
+  color: var(--text-color) !important;
+}
+
+.visita-text,
+.visita-count {
+  color: var(--text-color) !important;
+}
+/* Estilo general para las tarjetas */
+.card {
+  background-color: var(--bg-color); /* Fondo cálido claro que coincide con el esquema principal */
+  color: var(--text-color); /* Texto oscuro para buen contraste */
+  border-radius: var(--border-radius); /* Bordes redondeados para suavizar la apariencia */
+  padding: 1.5rem; /* Espaciado interno adecuado */
+  box-shadow: var(--box-shadow); /* Sombra suave para profundidad */
+  transition: all var(--transition); /* Transición suave para efectos de hover */
+  position: relative; /* Necesario para posicionar superposiciones, si es necesario */
+}
+
+/* Efecto hover para las tarjetas */
+.card:hover {
+  transform: translateY(-8px); /* Desplazamiento hacia arriba al hacer hover */
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1); /* Sombra más prominente */
+}
+
+/* Estilo para las tarjetas en modo oscuro (si se aplica un modo oscuro) */
+.card.adulto {
+  background-color: var(--night-bg); /* Fondo más oscuro en el modo adulto */
+  color: #f5f5f5; /* Texto claro para mayor contraste */
+  border: 1px solid #444; /* Borde sutil para tarjetas en modo oscuro */
+}
+
+/* Hover en tarjetas en modo oscuro */
+.card.adulto:hover {
+  background-color: #444; /* Fondo más oscuro cuando se pasa el ratón */
+}
+
+/* Estilo para la imagen dentro de las tarjetas */
+.card img {
+  width: 100%; /* Imagen ocupa todo el ancho de la tarjeta */
+  height: 200px; /* Altura fija para la imagen */
+  object-fit: cover; /* Asegura que la imagen se recorte adecuadamente */
+  border-radius: var(--border-radius); /* Bordes redondeados para la imagen */
+  transition: opacity var(--transition); /* Transición suave para la opacidad */
+}
+
+/* Efecto hover sobre la imagen */
+.card:hover img {
+  opacity: 0.8; /* Reduce la opacidad de la imagen al hacer hover */
+}
+
+/* Título de la tarjeta */
+.card h5 {
+  font-size: 1.6rem; /* Tamaño de fuente moderado */
+  font-weight: var(--font-weight-bold); /* Negrita para el título */
+  color: var(--primary-color); /* Color rosado brillante para el título */
+  margin-bottom: 1rem; /* Espaciado debajo del título */
+  transition: color var(--transition); /* Transición suave en el color */
+}
+
+/* Descripción o contenido de la tarjeta */
+.card p {
+  font-size: 1rem; /* Tamaño de fuente estándar */
+  color: var(--text-color); /* Texto en color oscuro */
+  margin-bottom: 1rem; /* Espaciado inferior */
+}
+
+/* Botón dentro de la tarjeta */
+.card button {
+  background-color: var(--primary-color); /* Fondo rosado brillante para el botón */
+  color: #ffffff; /* Texto blanco en el botón */
+  padding: 0.8rem 1.4rem; /* Espaciado adecuado para el botón */
+  border-radius: var(--border-radius); /* Bordes redondeados */
+  border: none;
+  cursor: pointer;
+  font-weight: var(--font-weight-bold); /* Negrita para el texto del botón */
+  transition: background-color var(--transition), transform var(--transition); /* Transición suave */
+  width: 100%; /* El botón ocupa todo el ancho de la tarjeta */
+}
+
+/* Hover en el botón */
+.card button:hover {
+  background-color: var(--secondary-color); /* Fondo rosado suave cuando se pasa el ratón */
+  transform: scale(1.05); /* Aumento sutil de tamaño al hacer hover */
+}
+
+/* Precio dentro de la tarjeta */
+.card .price {
+  font-size: 1.6rem; /* Tamaño grande para el precio */
+  color: var(--highlight-color); /* Color dorado para el precio */
+  font-weight: var(--font-weight-bold); /* Negrita para resaltar el precio */
+  margin-top: 0.8rem; /* Espaciado superior */
+}
+
+/* Superposición de agotado en la tarjeta */
+.card .agotado-overlay {
+  background: rgba(233, 30, 99, 0.7); /* Fondo rosado translúcido para indicar agotado */
+  color: #ffffff; /* Texto blanco en la superposición */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  inset: 0;
+  font-size: 1.6rem; /* Tamaño de texto grande */
+  font-weight: var(--font-weight-bold); /* Negrita */
+  text-transform: uppercase; /* Texto en mayúsculas */
+  border-radius: var(--border-radius); /* Bordes redondeados */
+  z-index: 10; /* Asegura que la superposición esté encima de otros elementos */
+}
