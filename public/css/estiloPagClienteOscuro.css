@@ -307,3 +307,82 @@ footer {
   border-radius: var(--border-radius); /* Bordes redondeados */
   z-index: 10; /* Asegura que la superposición esté encima de otros elementos */
 }
+
+/* Estilo para mostrar el modal */
+.modal.active {
+  display: flex; /* Muestra el modal */
+  opacity: 1; /* Hace que el modal sea visible */
+}
+
+/* Estilo para el contenedor del contenido dentro del modal */
+.modal-content {
+  background-color: var(--bg-color); /* Fondo oscuro consistente con el tema */
+  color: var(--text-color); /* Texto claro */
+  border-radius: var(--border-radius-large); /* Bordes redondeados */
+  padding: 2rem; /* Espaciado interno */
+  width: 80%; /* Ancho del modal */
+  max-width: 600px; /* Máximo tamaño */
+  box-shadow: var(--box-shadow); /* Sombra para dar profundidad */
+  position: relative; /* Para la superposición de elementos dentro del modal */
+}
+
+/* Estilo para el encabezado del modal */
+.modal-header {
+  font-size: 1.8rem;
+  font-weight: var(--font-weight-bold);
+  color: white; /* Color brillante para el encabezado */
+  margin-bottom: 1rem;
+}
+
+/* Estilo para el cuerpo del modal */
+.modal-body {
+  font-size: 1.1rem;
+  color: var(--text-color); /* Texto claro */
+  margin-bottom: 1.5rem;
+}
+
+/* Estilo para el pie del modal */
+.modal-footer {
+  text-align: right; /* Alineación a la derecha para el pie */
+}
+
+/* Estilo para el botón de cierre del modal */
+.modal-close {
+  background-color: var(--hover-color); /* Fondo vibrante */
+  color: var(--text-color); /* Texto claro */
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: var(--transition);
+}
+
+.modal-close:hover {
+  background-color: var(--link-hover-bg); /* Fondo más oscuro en hover */
+}
+
+/* Estilo para el modal */
+.modal {
+  display: none; /* Oculto por defecto */
+  position: fixed; /* Fijo para que esté en la parte superior */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro semi-transparente */
+  z-index: 1000; /* Asegura que el modal esté por encima de otros elementos */
+  justify-content: center; /* Centra el contenido del modal */
+  align-items: center; /* Centrado vertical y horizontal */
+  opacity: 0; /* Invisibilidad al principio */
+  transition: opacity 0.3s ease-out; /* Transición suave para la aparición */
+}
+.modal-overlay {
+  background-color: rgba(18, 18, 18, 0.8);  /* Fondo oscuro translúcido */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  inset: 0;
+  z-index: 20; /* Aseguramos que el modal tenga un z-index mayor al de "agotado" */
+}

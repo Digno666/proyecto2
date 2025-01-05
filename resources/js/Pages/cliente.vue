@@ -8,7 +8,6 @@
           <em>¡Encuentra todo lo que necesitas para tu belleza!</em>
         </h2>
       </div>
-      <!-- Filtro de categorías -->
       <div class="mb-8 mx-6 mt-6">
         <label for="categoriaSelect" class="mr-4 text-lg font-medium bb">Filtrar por Categoría:</label>
         <select id="categoriaSelect" v-model="categoriaSeleccionada" @change="filtrarProductosPorCategoria" class="border px-4 py-2 rounded-md">
@@ -30,7 +29,7 @@
           <div v-if="producto.stock <= 0" class="agotado-overlay">
             <span class="transform rotate-12">¡AGOTADO!</span>
           </div>
-          <img :src="producto.imagen ? `/storage/uploads/${producto.imagen}` : 'https://via.placeholder.com/300?text=Producto'" alt="Producto">
+          <img :src="producto.imagen ? `/storage/uploads/${producto.imagen}` : 'https://via.placeholder.com/300?text=Producto'" alt="Producto" class="imagen-card">
           <div class="p-6">
             <h5 class="bb">{{ producto.nombre }}</h5>
             <p class="text-sm text-gray-600 mt-2 bb">{{ producto.descripcion }}</p>
@@ -42,9 +41,6 @@
           </div>
         </div>
       </div>
-
-
-
       <!-- Modal para mostrar el carrito -->
       <div v-if="isCartModalOpen" class="modal-overlay fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center">
         <div class="modal-content bg-white p-8 rounded-lg w-1/2">
@@ -75,14 +71,14 @@
                   </td>
                   <td class="p-3">{{ item.precio * item.cantidad }} Bs.</td>
                   <td>
-                    <button @click="eliminarDelCarrito(item)" class="bg-pink-500 text-white py-1 px-3 rounded-lg">Eliminar</button>
+                    <button @click="eliminarDelCarrito(item)" class="btn btn-primary">Eliminar</button>
                   </td>
                 </tr>
               </tbody>
             </table>
           </div>
             <div class="total-container text-right mt-4">
-              <strong class="text-gray-800">Total:</strong> <span class="total-price text-xl text-pink-700">{{ totalCarrito }} Bs.</span>
+              <strong class="bb">Total:</strong> <span class="total-price text-xl text-pink-700">{{ totalCarrito }} Bs.</span>
             </div>
           </div>
           <div class="modal-footer justify-content-end flex justify-end p-3">
@@ -127,11 +123,13 @@ export default {
       });
     },
     filtrarProductosPorCategoria() {
-      axios.get(route('venta.obtenerProductos'), { params: { categoria: this.categoriaSeleccionada === 'todos' ? null : this.categoriaSeleccionada } }).then(response => {
-        this.productos = response.data.productos;
-        this.verificarProductos(); // Verifica si hay productos después de filtrar
-      });
-    },
+  console.log("Categoria seleccionada:", this.categoriaSeleccionada);  // Verifica el valor seleccionado
+  axios.get(route('venta.obtenerProductos'), { params: { categoria: this.categoriaSeleccionada === 'todos' ? null : this.categoriaSeleccionada } })
+    .then(response => {
+      this.productos = response.data.productos;
+      this.verificarProductos(); // Verifica si hay productos después de filtrar
+    });
+},
     // Nueva función para verificar si hay productos
     verificarProductos() {
       this.mensajeNoProductos = this.productos.length === 0;
@@ -188,6 +186,11 @@ body {
 .card {
   border: 1px solid #e2e8f0;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .card:hover {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -211,5 +214,11 @@ button:hover {
 
 .cc {
     border-color: #f9a8d4; /* Rosa claro */
+}
+.imagen-card {
+  width: 100%; /* La imagen ocupará todo el ancho del contenedor */
+  height: 100%; /* Máxima altura de la imagen */
+  object-fit: cover; /* Ajustar la imagen para que mantenga la proporción sin deformarse */
+  border-radius: 8px;
 }
 </style>

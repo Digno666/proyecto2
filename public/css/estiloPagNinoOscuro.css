@@ -291,8 +291,6 @@ footer {
   font-weight: var(--font-weight-bold); /* Precio en negrita */
   margin-top: 0.8rem; /* Espaciado superior */
 }
-
-/* Superposición de agotado en la tarjeta */
 .card .agotado-overlay {
   background: rgba(255, 111, 97, 0.7); /* Fondo suave en tono cálido para indicar agotado */
   color: #ffffff; /* Texto blanco */
@@ -307,3 +305,151 @@ footer {
   border-radius: var(--border-radius); /* Bordes redondeados */
   z-index: 10; /* Asegura que la superposición esté encima del contenido */
 }
+.modal-overlay {
+  background-color: rgba(18, 18, 18, 0.8);  /* Fondo oscuro translúcido */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  inset: 0;
+  z-index: 20; /* Aseguramos que el modal tenga un z-index mayor al de "agotado" */
+}
+
+.modal-content {
+  background-color: var(--night-bg); /* Fondo oscuro para el contenido del modal */
+  color: var(--text-color); /* Texto claro */
+  border-radius: var(--border-radius-large); /* Bordes redondeados */
+  width: 50%; /* Tamaño ajustado del modal */
+  padding: 2rem; /* Relleno del modal */
+  box-shadow: var(--box-shadow); /* Sombra suave */
+  transition: var(--transition); /* Transición suave */
+}
+
+/* Estilo para el encabezado del modal */
+.modal-header {
+  background-color: var(--link-hover-bg); /* Fondo del encabezado en rosado */
+  color: var(--text-color); /* Texto blanco */
+  padding: 1rem 2rem;
+  border-top-left-radius: var(--border-radius-large);
+  border-top-right-radius: var(--border-radius-large);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-title {
+  font-size: 1.8rem;
+  font-weight: var(--font-weight-bold);
+}
+
+.close {
+  cursor: pointer;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  transition: color 0.3s;
+}
+
+.close:hover {
+  color: var(--hover-color); /* Color al pasar el ratón */
+}
+
+/* Estilo para el cuerpo del modal */
+.modal-body {
+  padding: 2rem 0;
+  overflow-x: auto;
+}
+
+.table-auto {
+  background-color: var(--night-bg); /* Fondo oscuro para la tabla */
+  color: var(--text-color); /* Texto claro */
+  border-radius: var(--border-radius-large); /* Bordes redondeados */
+  width: 100%;
+}
+
+.table-auto th {
+  background-color: var(--table-header-bg); /* Fondo rosado para los encabezados */
+  color: var(--text-color); /* Texto claro */
+  text-align: left;
+  padding: 1rem;
+}
+
+.table-auto td {
+  border: 1px solid var(--table-border); /* Bordes rosados */
+  text-align: left;
+  padding: 1rem;
+}
+
+/* Efecto hover en las filas de la tabla */
+.table-auto tbody tr:hover {
+  background-color: var(--table-hover-bg); /* Fondo oscuro en el hover */
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-bold);
+  cursor: pointer;
+  border: 1px solid transparent;
+  background-color: var(--link-hover-bg);
+  color: var(--text-color);
+  transition: var(--transition);
+}
+
+/* Botón para eliminar un producto del carrito */
+.btn-primary {
+  background-color: var(--hover-color); /* Fondo rosado brillante */
+  color: var(--text-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--submenu-color); /* Fondo rosado más claro */
+  transform: scale(1.05);
+}
+
+/* Estilo para el total del carrito */
+.total-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 1rem;
+}
+
+.bb {
+  font-size: 1.2rem;
+  font-weight: var(--font-weight-bold);
+}
+
+.total-price {
+  font-size: 1.6rem;
+  color: var(--hover-color);
+  font-weight: var(--font-weight-bold);
+}
+
+/* Estilo para el pie del modal */
+.modal-footer {
+  padding: 1rem 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-footer button {
+  background-color: var(--hover-color); /* Fondo rosado */
+  color: #ffffff;
+  padding: 0.8rem 1.4rem;
+  border-radius: var(--border-radius);
+  font-weight: var(--font-weight-bold);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.modal-footer button:hover {
+  background-color: var(--submenu-color); /* Fondo rosado más claro */
+  transform: scale(1.05);
+}
+

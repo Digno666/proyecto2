@@ -33,22 +33,23 @@ class VentaClienteController extends Controller
     }
 
     public function obtenerProductos(Request $request)
-    {
-        // Obtener todas las categorías
-        $categorias = Categoria::all();
+{
+    // Obtener todas las categorías
+    $categorias = Categoria::all();
 
-        // Obtener los productos de acuerdo a la categoría seleccionada
-        $categoriaId = $request->get('categoria', null);
+    // Obtener los productos de acuerdo a la categoría seleccionada
+    $categoriaId = $request->get('Categoria', null);
 
-        $productos = Producto::when($categoriaId, function ($query, $categoriaId) {
-            return $query->where('codCategoria', $categoriaId);
-        })->get();
+    $productos = Producto::when($categoriaId, function ($query, $categoriaId) {
+        return $query->where('codCategoriaF', $categoriaId);
+    })->get();
 
-        return response()->json([
-            'productos' => $productos,
-            'categorias' => $categorias,
-        ]);
-    }
+    return response()->json([
+        'productos' => $productos,
+        'categorias' => $categorias,
+    ]);
+}
+
 
 
     public function mostrarDetalles(Request $request)
